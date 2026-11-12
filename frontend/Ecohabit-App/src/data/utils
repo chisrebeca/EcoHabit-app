@@ -1,0 +1,17 @@
+export const generateDailyTasks = (nivelAles, obiectiveAlese) => {
+  // 1. Filtrăm toate task-urile să corespundă DOAR cu obiectivele bifate de utilizator
+  const possibleTasks = ALL_TASKS.filter(task => obiectiveAlese.includes(task.category));
+
+  // 2. Stabilim numărul de task-uri în funcție de nivel
+  let count = 3;
+  if (nivelAles === 'incepator') count = Math.floor(Math.random() * 3) + 3; // 3-5
+  if (nivelAles === 'mediu') count = Math.floor(Math.random() * 3) + 5;     // 5-7
+  if (nivelAles === 'avansat') count = Math.floor(Math.random() * 4) + 7;   // 7-10
+
+  // 3. Amestecăm task-urile și alegem numărul necesar
+  const shuffled = possibleTasks.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count).map(task => ({
+    ...task,
+    completed: false // Adăugăm starea de completare
+  }));
+};

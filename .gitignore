@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Expo / React Native generated files
+.expo/
+dist/
+web-build/
+.metro-health-check*
+
+# Operating-system files
+.DS_Store
+
+# Local tooling
+.vscode/
+
+# Local tunnel executable
+backend/ngrok.exe
